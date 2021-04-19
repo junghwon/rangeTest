@@ -5,6 +5,10 @@
 ```shell
 $ make
 ```
+makeが使えない場合は以下を実行する。
+```shell
+$ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.c rangeMagnetronModel.c rangeRelayModel.c rangeTimer_Model.c rangeView.c -lpthread
+```
 <br>
 
 ## 操作方法
