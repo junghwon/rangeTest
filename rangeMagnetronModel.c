@@ -63,6 +63,7 @@ static void init (rangeMagnetronModel_t *this)
     this->mqOnTime = rangeMagnetronModelInitValue.mqOnTime;
     this->mqCounter = rangeMagnetronModelInitValue.mqCounter;
     this->rangeTimerModel.pInitTimer (&this->rangeTimerModel);
+    this->rangeRelayModel.pRelayOff (&this->rangeRelayModel);
 }
 
 static void mqStart (rangeMagnetronModel_t *this, watt_t watt)
