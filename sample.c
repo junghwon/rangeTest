@@ -11,6 +11,9 @@
 // staticでファイル内関数として宣言する
 static void manager (sample_t *this);
 static void setting (sample_t *this);
+// インターフェースのメソッド
+static void interfaceManager (interfaceSample_t *this);
+static void interfaceInit (interfaceSample_t *this);
 
 /* クラス初期値 */
 // クラスの初期値を定義する
@@ -22,6 +25,12 @@ const sample_t sampleInitValue = {
     // 操作
     &manager,
     &setting,
+};
+
+// インターフェースの初期値
+const interfaceSample_t interfaceSampleInitValue = {
+    &interfaceManager,
+    &interfaceInit,
 };
 
 /* メソッド定義 */
@@ -36,6 +45,17 @@ static void setting (sample_t *this)
 
 }
 
+// インターフェースのメソッド
+static void interfaceManager (interfaceSample_t *this)
+{
+
+}
+
+static void interfaceInit (interfaceSample_t *this)
+{
+    
+}
+
 /* コンストラクタ定義 */
 // クラスの各メンバを初期値で初期化する
 void sample_Constructor (sample_t *this)
@@ -43,12 +63,12 @@ void sample_Constructor (sample_t *this)
     // 属性
     this->data = sampleInitValue.data;
     this->value = sampleInitValue.value;
-
     // 操作
     this->pManager = sampleInitValue.pManager;
     this->pSetting = sampleInitValue.pSetting;
-
     // 集約
     // 集約したクラスのコンストラクタを実行する
     another_Constructor (&this->another);
+    // インターフェース
+    interfaceSample_Constructor (&this->interface, interfaceSampleInitValue);
 }

@@ -3,5 +3,6 @@
 
 typedef struct _interfaceSample interfaceSample_t;
 typedef void (*funcManager)(interfaceSample_t *this);
+typedef void (*funcInit)(interfaceSample_t *this);
 
 #endif // INTERFACE_SAMPLE_H

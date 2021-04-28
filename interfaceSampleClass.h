@@ -5,9 +5,9 @@
 
 struct _interfaceSample {
     funcManager pManager;
+    funcInit pInit;
 };
 
-extern const interfaceSample_t interfaceSampleInitValue;
 void interfaceSample_Constructor (interfaceSample_t *this, interfaceSample_t initValue);
 
 #endif // INTERFACE_CLASS_SAMPLE_H
