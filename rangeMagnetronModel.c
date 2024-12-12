@@ -5,6 +5,8 @@
 #include <string.h>
 #include "rangeMagnetronModelClass.h"
 
+static rangeRelayModel_t rangeRelayModel;
+
 static void manager (rangeMagnetronModel_t *this);
 static void init (rangeMagnetronModel_t *this);
 static void mqStart (rangeMagnetronModel_t *this, watt_t watt);
@@ -21,7 +23,7 @@ const rangeMagnetronModel_t rangeMagnetronModelInitValue = {
 
 static void mqOn (rangeMagnetronModel_t *this)
 {
-    this->rangeRelayModel.pRelayOn (&this->rangeRelayModel);
+    rangeRelayModel.pRelayOn (&rangeRelayModel);
 
     if (this->mqCounter <= 0) {
         printf ("MQ OFF\n");
@@ -33,7 +35,7 @@ static void mqOn (rangeMagnetronModel_t *this)
 
 static void mqOff (rangeMagnetronModel_t *this)
 {
-    this->rangeRelayModel.pRelayOff (&this->rangeRelayModel);
+    rangeRelayModel.pRelayOff (&rangeRelayModel);
 
     if (this->mqCounter <= 0) {
         printf ("MQ ON\n");
@@ -63,7 +65,7 @@ static void init (rangeMagnetronModel_t *this)
     this->mqOnTime = rangeMagnetronModelInitValue.mqOnTime;
     this->mqCounter = rangeMagnetronModelInitValue.mqCounter;
     this->rangeTimerModel.pInitTimer (&this->rangeTimerModel);
-    this->rangeRelayModel.pRelayOff (&this->rangeRelayModel);
+    rangeRelayModel.pRelayOff (&rangeRelayModel);
 }
 
 static void mqStart (rangeMagnetronModel_t *this, watt_t watt)
@@ -109,5 +111,5 @@ void rangeMagnetronModel_Constructor (rangeMagnetronModel_t *this)
     this->mqStart = rangeMagnetronModelInitValue.mqStart;
 
     rangeTimerModel_Constructor (&this->rangeTimerModel);
-    rangeRelayModel_Constructor (&this->rangeRelayModel);
+    rangeRelayModel_Constructor (&rangeRelayModel);
 }

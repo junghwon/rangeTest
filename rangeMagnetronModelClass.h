@@ -16,7 +16,7 @@ struct _rangeMagnetronModel {
     funcMqStart mqStart;
 
     rangeTimerModel_t rangeTimerModel;
-    rangeRelayModel_t rangeRelayModel;
+    // rangeRelayModel_t rangeRelayModel;
 };
 
 void rangeMagnetronModel_Constructor (rangeMagnetronModel_t *this);
