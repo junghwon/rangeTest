@@ -1,11 +1,21 @@
 # RangeTest
 
 ## ビルド方法
+### CMakeによるビルド
+ターミナルにて下記を実行する。
+```shell
+$ mkdir BUILD
+$ cd BUILD
+$ cmake ../CMakeLists.txt
+$ make
+```
+### makeによるビルド
 ターミナルにて下記を実行する。
 ```shell
 $ make
 ```
-makeが使えない場合は以下を実行する。
+# CMake、makeが使えない場合のビルド
+ターミナルにて下記を実行する。
 ```shell
 $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.c rangeMagnetronModel.c rangeRelayModel.c rangeTimer_Model.c rangeView.c -lpthread
 ```
