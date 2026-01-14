@@ -41,11 +41,8 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
     キーボードで's'を入力すると、調理が開始される。<br>
 <br>
 
-## クラス図
-    range_class_diagram.pdfを参照。
-<br>
-
-## MVCモデル
+## ソフトウェア構成
+### MVCモデル
     本プログラムはMVCモデルパターンに沿って作成されている。
     電子レンジ動作のロジックを担当するModel、
     表示に関する処理を担当するView、
@@ -57,8 +54,12 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
     ・Controller：rangeController, rangeKeyController
 <br>
 
-## 各クラスの役割
-### rangeController
+### クラス図
+    range_class_diagram.pdfを参照。
+<br>
+
+### 各クラスの役割
+#### rangeController
     主にユーザーから見える設定、操作を行う。
     属性
     ・watt          …　電子レンジ出力設定値
@@ -71,7 +72,7 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
     ・stop          …　調理完了時の処理。
     ・manager       …　調理工程制御(rangeCookModel)を呼び出す。
 
-### rangeKeyController
+#### rangeKeyController
     キーボード入力を制御する。
     属性
     ・keyCode       …　入力されたキーコードの値
@@ -79,7 +80,7 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
     ・scanKey      …　キーボードの入力監視を行う。
     ・getKey       …　キーコードを取得する。
 
-### rangeView
+#### rangeView
     表示の制御を行う。
     属性
     ・なし
@@ -91,7 +92,7 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
     ・stopDisplay       …　調理完了時の表示を行う。
     ・cookTimerDisplay  …　調理中のカウントダウン表示を行う。
 
-### rangeCookModel
+#### rangeCookModel
     調理工程を制御する。
     属性
     ・state             …　調理工程
@@ -104,7 +105,7 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
     ・cookStart         …　調理工程を開始する。
     ・getCookTimer      …　調理時間を取得する。
 
-### rangeMagnetronModel
+#### rangeMagnetronModel
     マグネトロンの駆動を制御する。
     属性
     ・mqOnTime      …　マグネトロンON時間設定値
@@ -116,7 +117,7 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
     ・init          …　マグネトロン駆動状態を初期化する。
     ・mqStart       …　マグネトロンの駆動時間を設定し、駆動制御を開始する。
 
-### rangeRelayModel
+#### rangeRelayModel
     リレー制御を行う。
     属性
     ・relayState    …　リレーのON、OFF状態
@@ -124,7 +125,7 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
     ・relayOn       …　リレー状態をONにする。
     ・relayOff      …　リレー状態をOFFにする。
 
-### rangeTimerModel
+#### rangeTimerModel
     制御に関する時間のカウントを行う。
     属性
     ・timer         …　カウント値のアドレス
