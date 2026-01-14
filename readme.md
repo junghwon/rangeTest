@@ -14,7 +14,7 @@ $ make
 ```shell
 $ make
 ```
-# CMake、makeが使えない場合のビルド
+### CMake、makeが使えない場合のビルド
 ターミナルにて下記を実行する。
 ```shell
 $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.c rangeMagnetronModel.c rangeRelayModel.c rangeTimer_Model.c rangeView.c -lpthread
