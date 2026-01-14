@@ -48,7 +48,7 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
     表示に関する処理を担当するView、
     ユーザー入力及び、ModelとViewに対する制御を担当するControllerから成る。
 
-    以下に各クラスとM、V、Cそれぞれの対応を記載する。
+    以下に各クラスにおけるModel、View、Controllerそれぞれの対応を記載する。
     ・Model：rangeCookModel, rangeMagnetronModel, rangeRelayModel, rangeTimerModel
     ・View：rangeView
     ・Controller：rangeController, rangeKeyController
@@ -60,7 +60,7 @@ $ gcc -o rangeTest main.c rangeController.c rangeKeyController.c rangeCookModel.
 
 ### 各クラスの役割
 #### rangeController
-    主にユーザーから見える設定、操作を行う。
+    ユーザーから見える設定操作、及びModel、Viewへの指示を行う。
     属性
     ・watt          …　電子レンジ出力設定値
     ・timer         …　調理時間設定値
